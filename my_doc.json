@@ -1,0 +1,87 @@
+{
+	"Root": {
+		"kernel": [
+			{
+				"id": "1",
+				"value": "2.6.18-274"
+			},
+			{
+				"id": "2",
+				"value": "2.6.32-131"
+			}
+		],
+		"networking":[
+		  {
+		    
+		  }
+		],
+		"storage":[
+		  {
+		    "FSTab|config": [
+		      {
+		        "fs_spec": "/dev/sdb"
+		      },
+		      {
+		        "fs_passno": "1"
+		      }
+		    ]
+		  },
+		  {
+		    "Mount|status":[
+		      {
+		        "filesystem": "/dev/sda1"
+		      },
+		      {
+		        "mount_clause":[
+		          {
+		            "rw_realtime": ""
+		          },
+		          {
+		            "seclabel":""  
+		          },
+		          {
+		            "attr2":""
+		          },
+		          {
+		            "inode64":""
+		          },
+		          {
+		            "noquota":""
+		          }
+		        ]
+		      }
+		    ]
+		  }
+		],
+		"services":[
+		],
+		"container":[
+		],
+		"i_check_kernel_build":[
+		],
+		"c_from_installed_rpms":[
+		],
+		"c_check_kernel":[
+		],
+		"openstack":[
+		  {
+		    "controller":[
+		      {
+		        "NeutronConf|config":[
+		          {
+		            "quotas/default_quota":"-1"
+		          }
+		        ]
+		      }
+		      ],
+		    "compute":[
+		      {
+		        "NovaConf|config": ""
+		      }
+		      ]
+		  }
+		],
+		"general":[
+		]
+	}
+}
