@@ -1,0 +1,30 @@
+id, node_name, class_level
+0, root,
+1, kernel, component
+2, networking, component
+3, storage, component
+4, services, component
+5, container, component
+6, openstack, component
+7, general, component
+8, FSTab|config, class
+9, Mount|status, class
+10, controller, Role
+11, compute, Role
+12, NeutronConf|config, class
+13, NovaConf|config, class
+14, Messages|log, class
+15, fs_spec, attribute
+16, fs_passno, attribute
+17, filesystem, attribute
+18, mount_clause, attribute
+19, quotas/default_quota, attribute
+20, procname, attribute
+21, message, attribute
+22, /dev/sdb, value
+23, 1, value
+24, /dev/sda1, value
+25, rw_reltime, value
+26, -1, value
+27, wrapper[1375], value
+28, wrapper Started as Daemon, value

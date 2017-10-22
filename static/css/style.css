@@ -1,0 +1,16 @@
+#tree ul, li {
+    padding-left: 20px;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+#tree ul {
+    list-style-type: none;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: relative;
+    opacity: 1;
+    pointer-events: visible;
+}

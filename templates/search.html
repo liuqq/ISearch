@@ -1,8 +1,21 @@
 <!doctype html>
 <link rel="stylesheet" type="text/css"
     href="{{ url_for('static', filename='css/materialize.min.css') }}">
+<link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+<link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='css/hummingbird-treeview-1.4.min.css') }}">
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/hummingbird-treeview-1.4.min.js')}}"></script>
+
 <html>
    <body>
    <div class="row">
@@ -17,7 +30,62 @@
           </div>
       </div>
     </form>
+
+    <div class=flash>{{ message }}</div>
+
+
+       <form action="#">
+        {% for i in res %}
+            <p>
+            <input type="checkbox" name="item" class="filled-in" id="filled-in-box{{ i }}"  />
+            <label for= "filled-in-box{{ i }}" >{{ i }}</label>
+            </p>
+        {% endfor %}
+        </form>
     </div>
-   {{ res }}
+   <div id="tree" class="hummingbird-treeview">
+
+   </div>
+
+   <div class="col s12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Statistics Analysis Submit</button>
+          </div>
+   <script>
+       function makeUL(lst) {
+    var html = [];
+    html.push('<ul>');
+    $(lst).each(function() { html.push(makeLI(this)) });
+    html.push('</ul>');
+    return html.join("\n");
+}
+
+function makeLI(elem) {
+    var html = [];
+    html.push('<li>');
+    var input =
+                '<i class="fa fa-plus"></i><label for= "filled-in-box' +  elem.name + '" >' +
+                '<input type="checkbox" name="item" data-id="filled-in-box' +  elem.name + '"  id="filled-in-box' +  elem.name +'" />' +
+                 elem.name + '</label>';
+
+
+    html.push(input);
+    if (elem.link)
+        html.push('<a>' + elem.link + '</a>');
+    if (elem.sub)
+        html.push('' + makeUL(elem.sub) + '');
+    html.push('</li>');
+    return html.join("\n");
+}
+
+$(function() {
+    var myjson = {{json_res|tojson|safe}};
+    myjson = JSON.parse(myjson);
+    $("#tree").html(makeUL(myjson.root));
+    $("#tree > ul").addClass('hummingbird-base')
+    $("#tree > ul").attr('id','treeview');
+    $("#treeview").hummingbird();
+});
+
+   </script>
    </body>
 </html>
